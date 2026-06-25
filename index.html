@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アセット・ヘキサゴン｜人生後半戦の戦力分析テスト</title>
+    <title>Life Asset Hexagon｜50代からの人生資産を測る24の問い</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         *, *::before, *::after {
@@ -160,7 +160,6 @@
             font-size: 0.9rem;
             color: var(--text-sub);
             margin: 0.5rem 0 0;
-            font-style: italic;
         }
 
         /* ===== QUESTION CARD ===== */
@@ -255,8 +254,8 @@
 
         .btn-submit {
             display: inline-block;
-            background: var(--white);
-            color: var(--navy);
+            background: var(--navy);
+            color: var(--white);
             border: 2px solid var(--navy);
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
@@ -268,8 +267,8 @@
         }
 
         .btn-submit:hover, .btn-submit:active {
-            background: var(--navy);
-            color: var(--white);
+            background: var(--navy-light);
+            border-color: var(--navy-light);
         }
 
         .btn-submit:disabled {
@@ -422,6 +421,52 @@
             line-height: 1.8;
         }
 
+        /* ===== ALL ASSETS FEEDBACK ===== */
+        .all-feedback-section {
+            margin-top: 2rem;
+        }
+
+        .all-feedback-section h3 {
+            font-size: 1.15rem;
+            color: var(--navy);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .asset-feedback-item {
+            margin-bottom: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 6px;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+        }
+
+        .asset-feedback-item .af-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .asset-feedback-item .af-name {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        .asset-feedback-item .af-score {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .asset-feedback-item .af-text {
+            font-size: 0.93rem;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+
         /* ===== REFLECTION ===== */
         .reflection-section {
             margin-top: 2.5rem;
@@ -519,23 +564,23 @@
 
 <div class="container">
     <header>
-        <h1>アセット・ヘキサゴン</h1>
-        <p class="subtitle">人生後半戦の戦力分析テスト ── 6つのライフアセット × 24問</p>
-        <p class="credit">人生後半戦略のためのデザインガイド｜付録ワークシート</p>
+        <h1>Life Asset Hexagon</h1>
+        <p class="subtitle">── 50代からの「人生資産」を6つの角度で測る24の問い</p>
     </header>
 
     <div class="intro">
-        <h2>このテストについて</h2>
-        <p>人生を構成する6つの資産（ライフアセット）を、それぞれ4つの角度から測定します（全24問）。</p>
-        <p>正解・不正解はありません。今の自分に最も近い選択肢を、直感で選んでください。所要時間は約5〜8分です。</p>
-        <p>すべて回答すると、あなただけの「アセット・ヘキサゴン（6軸レーダーチャート）」が自動生成され、強みと課題が可視化されます。</p>
+        <h2>あなたの「人生の持ち物」を棚卸ししてみませんか？</h2>
+        <p>私たちの人生は、目に見えるお金や肩書きだけで成り立っているわけではありません。<br>健康、スキル、人間関係、心の安定、時間の使い方── こうした「目に見えにくい資産」が、日々の充実感や、周りの人との関係の質を大きく左右しています。</p>
+        <p>このテストは、人生を支える<strong>6つの資産（Asset）</strong>を<strong>六角形（Hexagon）</strong>のレーダーチャートで可視化する自己分析ツールです。それぞれ4つの角度から測定する全24問、所要時間は5〜8分です。</p>
+        <p>正解・不正解はありません。「今の自分に、いちばん近いもの」を直感で選んでください。<br>すべて答えると、あなただけの<strong>6角形チャート（ヘキサゴン）</strong>が出来上がり、今の強みと、テコ入れしたい領域がひと目で分かります。</p>
+        <p style="margin-top:1rem; font-size:0.9rem; color:#555;">※ このテストの結果が誰かに送信されることはありません。あなたの中だけで完結する、自分のための時間です。</p>
     </div>
 
     <div class="progress-wrapper">
         <div class="progress-bar-bg">
             <div class="progress-bar-fill" id="progressBar"></div>
         </div>
-        <div class="progress-text"><span id="progressCount">0</span> / 24 問回答済み</div>
+        <div class="progress-text"><span id="progressCount">0</span> / 24 問回答ずみ</div>
     </div>
 
     <form id="quiz-form">
@@ -545,54 +590,54 @@
             <div class="asset-header">
                 <p class="asset-number">Asset 01</p>
                 <h2 class="asset-title">健康資産</h2>
-                <p class="asset-desc">体の不調に縛られず、毎日を気持ちよく動かせるだけの土台があるか。</p>
+                <p class="asset-desc">体の調子がよく、毎日を気持ちよく動けるだけの土台があるか。</p>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q1 ─ 日中の活力</div>
-                <div class="question-text">日中、強い疲労感やだるさを感じることなく、エネルギー高く活動できている。</div>
+                <div class="question-label">Q1 ─ 日中の元気</div>
+                <div class="question-text">日中、強いだるさや疲れを感じることなく、元気に動けている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="h1" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="h1" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="h1" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
                 <div class="question-label">Q2 ─ 睡眠の質</div>
-                <div class="question-text">朝はスッキリと目覚め、睡眠によって前日の疲れがリセットされている実感がある。</div>
+                <div class="question-text">朝はスッキリ目が覚め、「よく寝たな」と思える日が多い。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="h2" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="h2" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="h2" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q3 ─ 予防・運動習慣</div>
-                <div class="question-text">食事のバランスや定期的な運動（ウォーキング等）、健康診断の数値改善などに主体的に取り組んでいる。</div>
+                <div class="question-label">Q3 ─ 体のメンテナンス</div>
+                <div class="question-text">食事や運動、健康診断の数値など、自分の体を自分で手入れする習慣がある。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="h3" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="h3" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="h3" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q4 ─ セルフケアの自信</div>
-                <div class="question-text">ちょっとした不調があっても、自分で体をケア・コントロールできる安心感がある。</div>
+                <div class="question-label">Q4 ─ 体調と周囲への影響</div>
+                <div class="question-text">自分の体調が悪いとき、仕事の質や周りの人への態度に影響が出ていることに気づけている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="h4" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="h4" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="h4" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="h4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="h4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
         </div>
@@ -602,54 +647,54 @@
             <div class="asset-header">
                 <p class="asset-number">Asset 02</p>
                 <h2 class="asset-title">キャリア資産</h2>
-                <p class="asset-desc">会社の看板に縛られず、個人として価値を差し出せるだけの実力があるか。</p>
+                <p class="asset-desc">会社の名前がなくても、「自分の力」で人の役に立てるか。</p>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q5 ─ 個人の武器</div>
-                <div class="question-text">今の所属組織や肩書きがなくなっても、個人として他者に喜ばれる武器（ノウハウや実力）がある。</div>
+                <div class="question-label">Q5 ─ 自分だけの武器</div>
+                <div class="question-text">今の会社や肩書きがなくなっても、「これなら人の役に立てる」と言える得意分野がある。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="c1" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="c1" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="c1" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q6 ─ 新技術への適応</div>
-                <div class="question-text">新しい技術（AIツールなど）や時代のトレンドに対して拒絶反応がなく、日常的に触れたり学んだりしている。</div>
+                <div class="question-label">Q6 ─ 新しいことへの柔軟さ</div>
+                <div class="question-text">AIなどの新しい技術や、時代の変化に対して「まず触ってみよう」という気持ちがある。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="c2" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="c2" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="c2" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q7 ─ 経験の言語化・継承</div>
-                <div class="question-text">自分のこれまでの経験や知識を、ドキュメントや型として言語化し、他人に「渡す」準備ができている。</div>
+                <div class="question-label">Q7 ─ 経験を伝える力</div>
+                <div class="question-text">自分が身につけたコツや知識を、相手に分かる言葉で伝えたり、形に残したりすることができている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="c3" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="c3" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="c3" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q8 ─ 自律的キャリアデザイン</div>
-                <div class="question-text">今後の働き方やキャリアの着地点を会社任せにせず、定年後も見据えて自分の意志でデザインしている。</div>
+                <div class="question-label">Q8 ─ 自分で決めるキャリア</div>
+                <div class="question-text">この先どう働くかを会社まかせにせず、自分の意志で考えている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="c4" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="c4" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="c4" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="c4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="c4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
         </div>
@@ -659,54 +704,54 @@
             <div class="asset-header">
                 <p class="asset-number">Asset 03</p>
                 <h2 class="asset-title">金融資産</h2>
-                <p class="asset-desc">お金の不安に縛られず、やりたいことを選び、嫌なことを断れるだけの余力があるか。</p>
+                <p class="asset-desc">お金の心配にしばられず、やりたいことを選べるだけの余裕があるか。</p>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q9 ─ 収支の自己管理</div>
-                <div class="question-text">毎月の収支バランスやお金の流れを自分でしっかり把握し、コントロールできている。</div>
+                <div class="question-label">Q9 ─ お金の流れの把握</div>
+                <div class="question-text">毎月、自分のお金がどこに使われているかを把握し、コントロールできている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="m1" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="m1" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="m1" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q10 ─ 将来の計画性</div>
-                <div class="question-text">老後や将来に対する経済的な「漠然とした不安」が少なく、資産形成が計画的に進んでいる。</div>
+                <div class="question-label">Q10 ─ 将来への安心感</div>
+                <div class="question-text">老後や将来のお金について、「なんとなく不安」ではなく、ある程度の見通しが立っている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="m2" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="m2" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="m2" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q11 ─ 経済的余力（選択の自由）</div>
-                <div class="question-text">お金を理由に「本当にやりたい挑戦」をあきらめたり、「嫌な仕事・付き合い」を我慢して続ける必要がない余力がある。</div>
+                <div class="question-label">Q11 ─ 選べる自由</div>
+                <div class="question-text">お金を理由に「本当はやりたくないこと」をガマンして続ける必要がない。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="m3" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="m3" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="m3" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q12 ─ 活きた投資</div>
-                <div class="question-text">単にお金を貯め込むだけでなく、健康・経験・自己投資・次世代のために意識的にお金を使えている。</div>
+                <div class="question-label">Q12 ─ 生きたお金の使い方</div>
+                <div class="question-text">ただ貯めるだけでなく、経験や学び、大切な人のために「意味のあるお金の使い方」ができている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="m4" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="m4" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="m4" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="m4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="m4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
         </div>
@@ -716,54 +761,54 @@
             <div class="asset-header">
                 <p class="asset-number">Asset 04</p>
                 <h2 class="asset-title">人間関係資産</h2>
-                <p class="asset-desc">肩書きや義理に縛られず、心から会いたい人と豊かに繋がれるだけの輪があるか。</p>
+                <p class="asset-desc">信頼できる人がいて、お互いを大切にできる関係があるか。</p>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q13 ─ 本音の深い信頼</div>
-                <div class="question-text">家族や親友など、見栄を張らずに本音でありのままの話ができる、深い信頼関係で結ばれた人が身近にいる。</div>
+                <div class="question-label">Q13 ─ 本音で話せる相手</div>
+                <div class="question-text">見栄を張らず、弱いところも含めて本音で話せる相手が、少なくとも一人はいる。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="r1" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="r1" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="r1" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q14 ─ サードプレイス</div>
-                <div class="question-text">会社や家庭という枠組みを離れた、趣味の仲間や地域活動などの「第三の居場所」を持っている。</div>
+                <div class="question-label">Q14 ─ 相手の立場への想像力</div>
+                <div class="question-text">立場や役割がちがう人に対しても、「この人にはこの人の苦労や事情がある」と想像し、対等な敬意を持って接している。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="r2" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="r2" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="r2" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q15 ─ 関係性の断捨離</div>
-                <div class="question-text">義理や「なんとなく」の付き合いを整理し、自分が本当に大切にしたい人間関係に時間を集中させている。</div>
+                <div class="question-label">Q15 ─ 付き合いの整理</div>
+                <div class="question-text">「なんとなく」の付き合いを減らし、本当に大切にしたい人に時間を使えている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="r3" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="r3" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="r3" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q16 ─ 相互支援（利他）の輪</div>
-                <div class="question-text">周囲の人を応援したり助けたりすること（利他行為）に喜びを感じ、また自分が困った時にも素直に助けを求められる関係がある。</div>
+                <div class="question-label">Q16 ─ 助け合いの関係</div>
+                <div class="question-text">周りの人の力になることに喜びを感じ、自分が困ったときには素直に「助けてほしい」と言える関係がある。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="r4" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="r4" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="r4" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="r4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="r4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
         </div>
@@ -773,54 +818,54 @@
             <div class="asset-header">
                 <p class="asset-number">Asset 05</p>
                 <h2 class="asset-title">精神資産</h2>
-                <p class="asset-desc">他人の評価に縛られず、自分の機嫌は自分で取れるだけの軸があるか。</p>
+                <p class="asset-desc">心が安定していて、自分の機嫌を自分でとれる力があるか。</p>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q17 ─ セルフ機嫌取り</div>
-                <div class="question-text">他人の言動やSNSの評価に振り回されることなく、自分の心の機嫌を自分でコントロールできている。</div>
+                <div class="question-label">Q17 ─ 心の安定</div>
+                <div class="question-text">他人の言葉や態度に振り回されず、自分の気持ちを自分で落ち着かせることができる。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="p1" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="p1" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="p1" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q18 ─ 人生の全責任（自立）</div>
-                <div class="question-text">不満や停滞を「環境、会社、他人、年齢」のせいにせず、これからの人生を切り開く全責任は自分にあると腹を括れている。</div>
+                <div class="question-label">Q18 ─ 自分の人生の責任</div>
+                <div class="question-text">うまくいかないことを「環境のせい」「あの人のせい」にせず、「自分にできることは何か」を考えられる。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="p2" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="p2" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="p2" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q19 ─ 美学・遊び心</div>
-                <div class="question-text">「正論」や効率・損得だけで物事を判断せず、自分自身の「好き」「面白い」「美しい」という美学や遊び心を大切にできている。</div>
+                <div class="question-label">Q19 ─ 心の余白</div>
+                <div class="question-text">正論で相手を言い負かすよりも、お互いが納得できる落としどころを探る「心の余白」を大事にしている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="p3" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="p3" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="p3" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q20 ─ メタ認知と心の余白</div>
-                <div class="question-text">自分の感情の波や強み・弱みを客観的に見つめる（メタ認知する）ことができ、精神的に「心の余白」を保てている。</div>
+                <div class="question-label">Q20 ─ メタ認知（自分を客観的に見る力）</div>
+                <div class="question-text">自分の感情やクセを、第三者の目で冷静に見つめることができている。つまり、「今の自分は周りからどう見えているか？」という視点を持てている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="p4" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="p4" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="p4" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="p4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="p4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
         </div>
@@ -830,61 +875,62 @@
             <div class="asset-header">
                 <p class="asset-number">Asset 06</p>
                 <h2 class="asset-title">時間資産</h2>
-                <p class="asset-desc">日々の慌ただしさに縛られず、自分の意志で使える時間を確保できているか。</p>
+                <p class="asset-desc">自分の時間を自分で選び、未来のために使えているか。</p>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q21 ─ 時間の主導権</div>
-                <div class="question-text">日々の緊急タスクや慌ただしさに流されることなく、自分のスケジュールを自分でコントロールしている感覚がある。</div>
+                <div class="question-label">Q21 ─ 時間のコントロール</div>
+                <div class="question-text">目の前の忙しさに流されず、「自分のスケジュールは自分で決めている」という感覚がある。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="t1" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t1" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="t1" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="t1" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t1" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q22 ─ 未来のための時間の先取り</div>
-                <div class="question-text">朝一番の時間や特定の曜日など、「自分の将来のための時間」をカレンダーにあらかじめ予約して死守できている。</div>
+                <div class="question-label">Q22 ─ 未来への時間投資</div>
+                <div class="question-text">朝の時間など、「将来の自分のための時間」をあらかじめ確保して守れている。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="t2" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t2" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="t2" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="t2" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t2" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q23 ─ 能動的な時間消費</div>
-                <div class="question-text">なんとなくスマホを眺める時間や受動的な時間を減らし、自分が能動的に選んだ時間の使い方ができている。</div>
+                <div class="question-label">Q23 ─ 相手の時間への敬意</div>
+                <div class="question-text">自分の時間を大切にするのと同じように、相手の時間も尊重して行動できている。「待たせない」「要点をまとめてから伝える」などの配慮がある。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="t3" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t3" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="t3" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="t3" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t3" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
 
             <div class="question-card">
-                <div class="question-label">Q24 ─ 境界線（断る力）</div>
-                <div class="question-text">他人からの不要な頼まれごとや気の進まない誘いに対して、きっぱりと断り、自分の時間を防衛することができている。</div>
+                <div class="question-label">Q24 ─ 断る力</div>
+                <div class="question-text">必要のない頼まれごとに対して、相手を傷つけずに「No」を伝え、自分の時間を守ることができる。</div>
                 <div class="likert-scale">
                     <label class="likert-option"><input type="radio" name="t4" value="1" required><span class="likert-btn"><span class="likert-num">1</span><span class="likert-desc">全く×</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t4" value="2"><span class="likert-btn"><span class="likert-num">2</span><span class="likert-desc">あまり△</span></span></label>
                     <label class="likert-option"><input type="radio" name="t4" value="3"><span class="likert-btn"><span class="likert-num">3</span><span class="likert-desc">普通</span></span></label>
                     <label class="likert-option"><input type="radio" name="t4" value="4"><span class="likert-btn"><span class="likert-num">4</span><span class="likert-desc">まあ○</span></span></label>
-                    <label class="likert-option"><input type="radio" name="t4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に○</span></span></label>
+                    <label class="likert-option"><input type="radio" name="t4" value="5"><span class="likert-btn"><span class="likert-num">5</span><span class="likert-desc">非常に◎</span></span></label>
                 </div>
             </div>
         </div>
 
+        <!-- ===== SUBMIT ===== -->
         <div class="submit-container">
-            <button type="submit" class="btn-submit" id="submitBtn">ヘキサゴンを生成する</button>
-            <p class="validation-msg" id="validationMsg">未回答の質問があります。すべての質問に回答してください。</p>
+            <button type="submit" class="btn-submit" id="submitBtn">結果を見る</button>
+            <p class="validation-msg" id="validationMsg">まだ答えていない質問があります。上にスクロールして確認してください。</p>
         </div>
     </form>
 
@@ -892,9 +938,10 @@
     <div id="result-section">
         <div class="result-header">
             <h2>あなたのアセット・ヘキサゴン</h2>
-            <p>現在の人生の構成資産バランスです。凸凹の形が、今のあなたの戦力バランスを映しています。</p>
+            <p>6つの資産のバランスが、ひと目で分かります。</p>
         </div>
 
+        <!-- Radar Chart -->
         <div class="chart-container">
             <canvas id="hexagonChart"></canvas>
         </div>
@@ -907,53 +954,59 @@
             <tbody id="scoreTableBody"></tbody>
         </table>
 
-        <!-- Feedback -->
+        <!-- Top Feedback (strongest & weakest) -->
         <div class="feedback-section">
-            <h3>総合診断と明日への処方箋</h3>
+            <h3>あなたの強みと課題</h3>
 
             <div class="feedback-box strong">
-                <div class="feedback-label">Strongest ─ あなたの強み</div>
+                <div class="feedback-label">Strongest ─ いちばんの強み</div>
                 <div class="feedback-title" id="strongest-title"></div>
                 <div class="feedback-text" id="strongest-text"></div>
             </div>
 
             <div class="feedback-box weak">
-                <div class="feedback-label">Challenge ─ テコ入れすべき領域</div>
+                <div class="feedback-label">Challenge ─ テコ入れしたい領域</div>
                 <div class="feedback-title" id="weakest-title"></div>
                 <div class="feedback-text" id="weakest-text"></div>
             </div>
         </div>
 
+        <!-- All 6 Assets Feedback -->
+        <div class="all-feedback-section">
+            <h3>6つの資産 ── それぞれの処方箋</h3>
+            <div id="allFeedbackContainer"></div>
+        </div>
+
         <!-- Reflection Section -->
         <div class="reflection-section">
             <h3>内省ノート ── この気づきを、明日どう活かすか</h3>
-            <p class="reflection-intro">テストの結果を眺めて終わりにせず、以下の問いに心の中で答えてみてください。自分の人生を整えることは、周囲の人への接し方を変え、やがてチーム全体の空気を変える力を持っています。</p>
+            <p class="reflection-intro">テストの結果を眺めて終わりにせず、以下の問いに心の中で答えてみてください。答えを書く必要はありません。ただ、心の中で考えるだけで十分です。<br>自分の人生を整えることは、周りの人への接し方を変え、やがて関わる人すべてとの空気を変える力を持っています。</p>
 
             <div class="reflection-card">
                 <div class="q-label">問い 1 ── 自分自身へ</div>
-                <div class="q-text">最も低かった資産について、「明日から1つだけ」変えるとしたら、何を変えますか？</div>
+                <div class="q-text">いちばんスコアが低かった資産について、「明日から1つだけ」変えるとしたら、何を変えますか？</div>
             </div>
 
             <div class="reflection-card">
                 <div class="q-label">問い 2 ── 仕事への姿勢</div>
-                <div class="q-text">今の自分の心身の状態は、日々の仕事のパフォーマンスや判断にどう影響していると思いますか？</div>
+                <div class="q-text">今の自分の心と体の状態は、毎日の仕事の質や、周りの人への態度にどう影響していると思いますか？</div>
             </div>
 
             <div class="reflection-card">
-                <div class="q-label">問い 3 ── チームの仲間へ</div>
+                <div class="q-label">問い 3 ── 周りの人へ</div>
                 <div class="q-text">あなたの周りにいる人たちも、それぞれの人生を背負いながら日々を過ごしています。相手の「見えない事情」に想像力を働かせたとき、明日からの接し方は何か変わりそうですか？</div>
             </div>
 
             <div class="reflection-card">
-                <div class="q-label">問い 4 ── 相互尊重</div>
-                <div class="q-text">自分の人生を大切にすることと、相手の仕事に敬意を払うことは、根っこでつながっています。あなたが「自分の人生のハンドルを握る」ことで、周囲にどんな良い影響を与えられると思いますか？</div>
+                <div class="q-label">問い 4 ── あなただけの問い</div>
+                <div class="q-text" id="reflection-q4"></div>
             </div>
         </div>
 
         <!-- Closing -->
         <div class="closing">
             <div class="closing-quote">決めるのは、いつも今日のあなた。</div>
-            <p class="closing-sub">自分の人生のハンドルを握り直したその瞬間から、第2章は始まります。</p>
+            <p class="closing-sub">自分の人生のハンドルを握り直したその日から、あなたの第2章は始まります。</p>
         </div>
     </div>
 </div>
@@ -969,34 +1022,44 @@
     const prescriptionData = {
         health: {
             name: "健康資産",
-            strong: "「気合い」を捨て、数値で調整する時期です。若い頃の手応えを信じず、血圧・体重・睡眠時間の「毎日の記録」で、身体を細かくチューニングしましょう。",
-            weak: "まずは、体を「最低限の状態」に戻しましょう。面倒な計画は不要。「寝る時刻」と「歩く」だけを固定し、日中のダルさを消すことから始めるのが吉です。"
+            strong: "体の調子が良いのは大きな強みです。次のステップは「気合い」ではなく「数字で管理する」こと。血圧・体重・睡眠時間を記録して、小さな変化に早めに気づく習慣をつくりましょう。体が整っていると、心にも余裕が生まれ、周りへの接し方も自然とやわらかくなります。",
+            weak: "まずは体を「ふつうの状態」に戻すことから始めましょう。難しい計画は要りません。「寝る時間を決める」「毎日少し歩く」── この2つだけ。体がラクになると、気持ちにも余裕が出て、仕事中のイライラも減っていきます。"
         },
         career: {
             name: "キャリア資産",
-            strong: "自分でやるのをやめ、「他人を動かす（仕組み化）」側に回る時期です。ノウハウをドキュメントや型に起こし、他人が見ても出来る状態にパッケージし直しましょう。",
-            weak: "今の仕事を「資産化」する眼で見直しましょう。漫然とこなさず、「なぜこの仕事？どこが改善できる？」と問いながら、自分のスキルとして言語化するのが一手です。"
+            strong: "あなたには確かな実力があります。次のステージは「自分でやる」から「人に渡す」へのシフトです。あなたのコツや知識を、誰が読んでも分かるように書き残しましょう。それは後輩のためだけでなく、あなた自身の価値をさらに高めます。",
+            weak: "今の仕事を「ただこなす」のではなく、「自分の力として積み上げる」目で見直してみましょう。「この仕事で自分は何が上手くなったか？」と問いかけるだけで、毎日の仕事が自分の武器に変わり始めます。"
         },
         money: {
             name: "金融資産",
-            strong: "「貯める」から「生きるために美しく使う」へシフトする時期です。貯蓄や資産額の数字をただ追うのをストップし、経験・健康・学び、そして次世代への出費に予算を振り向けましょう。",
-            weak: "「出ていく金」を可視化し、優先順位で振り分けましょう。サブスクや付き合いの支出を一度棚卸しし、手取りの1割を「未来の選択肢代」として自動貯蓄に回す仕組みを作ります。"
+            strong: "お金の基盤がしっかりしているのは心強いことです。次は「貯める」から「生きたお金の使い方」へ。経験・学び・大切な人を喜ばせること── そこにお金を使える人は、周りからも信頼されます。",
+            weak: "まずは「何にいくら使っているか」を見える化しましょう。サブスクや付き合いの出費を一度ぜんぶ書き出し、手取りの1割だけ「未来の自分のために」自動で貯まる仕組みを作る。それだけで心の余裕が変わります。"
         },
         relationships: {
             name: "人間関係資産",
-            strong: "名刺交換の浅い人脈を「本当に会いたい人リスト」で見直す時期です。「もう会わなくても後悔しない人」とは静かに距離を置き、残った大切な人に自分から連絡を取りましょう。",
-            weak: "肩書きの要らない「サードプレイス（第三の居場所）」をひとつ持ちましょう。趣味の教室・サークル・地域活動など、既にある関係だけで生きる人生から一歩踏み出します。"
+            strong: "信頼できる人がいるのは、何よりの財産です。次は「広げる」より「深める」時期。本当に大切な人に、自分から連絡を取りましょう。そして、身近な人の「見えない苦労」に気づける想像力を、もう一段磨いてみてください。相手の立場で考える習慣は、あらゆる人間関係を良くします。",
+            weak: "人間関係は「待っていても育たない」もの。まずは身近な人に「ありがとう」「助かったよ」の一言を増やすことから始めましょう。立場がちがう人にも「この人にはこの人の大変さがある」と想像してみる。その小さな想像力が、信頼の種になります。"
         },
         mental: {
             name: "精神資産",
-            strong: "自分の「正しさ」を証明しようとしない心の余裕を持つ時期です。他人を論破したい誘惑を捨て、代わりに「面白い」「美しい」「やってみたい」を評価軸の中心に置きましょう。",
-            weak: "一日に一回「いい気分」を自発的に仕込みましょう。朝の淹れたてコーヒー、1曲だけの散歩など、1日1つ、自分の機嫌を自分で作る練習をするのがオススメです。"
+            strong: "心が安定しているのは大きな強みです。次のステップは、「正しさを証明する」ことを手放すこと。相手を論破したい誘惑をぐっとこらえ、「面白い」「やってみたい」を評価軸の中心に置きましょう。「正しい人」より「一緒にいて心地よい人」のほうが、人は集まります。",
+            weak: "不満を「誰かのせい」「環境のせい」にしているうちは、人生のハンドルを握れません。まずは1日1回、自分の機嫌を自分で作る練習をしましょう。朝のコーヒー、好きな音楽、5分の散歩── 小さなことで十分です。「自分の機嫌は自分でとる」。それができる人は、周りの空気も変えていけます。"
         },
         time: {
             name: "時間資産",
-            strong: "「やらないことリスト」を言語化して自分の時間を防衛する時期です。「頼まれたら一拍置いて考える」をルール化し、反射でOKを出すのをやめるだけで時間は生まれます。",
-            weak: "「朝の30分」を未来のために予約しましょう。起きてすぐの30分を「自分のための未来の予定」としてカレンダーに予め入れる。夜のスマホを削るより遥かに効果的です。"
+            strong: "時間を自分でコントロールできているのは素晴らしいことです。次は「やらないことリスト」を作りましょう。頼まれごとに反射的にOKを出すのをやめ、一拍おいて考える。それだけで、本当に大切なことに使える時間が増えます。",
+            weak: "まずは「朝の30分」を自分のために予約しましょう。起きてすぐの30分をカレンダーに入れて「未来の自分のための時間」にする。夜のスマホを減らすより、ずっと効果があります。自分の時間を大切にできる人は、相手の時間も自然と大切にできます。"
         }
+    };
+
+    // ===== Reflection Q4 (dynamic based on weakest asset) =====
+    const reflectionQ4 = {
+        health: "体を雑にあつかうと、心に余裕がなくなり、気づかないうちに周りにトゲのある態度をとってしまいがちです。明日、自分の体をいたわるために、どんな小さなことをしますか？",
+        career: "自分の仕事に誇りを持てないと、他の人の仕事への敬意もうすれがちです。明日、今の仕事の中で「自分が価値を出せている部分」を一つ見つけるとしたら、どこですか？",
+        money: "お金の不安は、心の余裕をうばい、視野をせまくします。明日、将来の不安を少しでも減らすために「お金の使い方」を一つ見直すとしたら、何ですか？",
+        relationships: "自分の正しさを主張するだけでは、人は動きません。明日、意見が合わない相手に対して「相手の立場」から考えてみるとしたら、どんな気づきがありそうですか？",
+        mental: "不満を誰かのせいにしている間は、自分の人生のハンドルを握れません。明日、誰かのせいにしたくなったとき、「自分にできること」にどう意識を向け直しますか？",
+        time: "自分の時間に追われていると、相手の時間をうばうことにも気づきにくくなります。明日、自分の時間を守りつつ、相手の時間も大切にするために、どんな工夫ができますか？"
     };
 
     const assetOrder = ['health', 'career', 'money', 'relationships', 'mental', 'time'];
@@ -1021,14 +1084,13 @@
         const answered = document.querySelectorAll('input[type="radio"]:checked').length;
         if (answered < TOTAL_QUESTIONS) {
             document.getElementById('validationMsg').style.display = 'block';
-            // Find first unanswered and scroll to it
             const allNames = ['h1','h2','h3','h4','c1','c2','c3','c4','m1','m2','m3','m4','r1','r2','r3','r4','p1','p2','p3','p4','t1','t2','t3','t4'];
             for (let name of allNames) {
-                if (!document.querySelector(`input[name="${name}"]:checked`)) {
-                    const el = document.querySelector(`input[name="${name}"]`).closest('.question-card');
+                if (!document.querySelector('input[name="' + name + '"]:checked')) {
+                    var el = document.querySelector('input[name="' + name + '"]').closest('.question-card');
                     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     el.style.outline = '2px solid #8b4513';
-                    setTimeout(() => { el.style.outline = 'none'; }, 2500);
+                    setTimeout(function() { el.style.outline = 'none'; }, 2500);
                     break;
                 }
             }
@@ -1038,15 +1100,15 @@
         document.getElementById('validationMsg').style.display = 'none';
 
         // Calculate scores
-        function getAvg(q1, q2, q3, q4) {
-            const v1 = parseFloat(document.querySelector(`input[name="${q1}"]:checked`).value);
-            const v2 = parseFloat(document.querySelector(`input[name="${q2}"]:checked`).value);
-            const v3 = parseFloat(document.querySelector(`input[name="${q3}"]:checked`).value);
-            const v4 = parseFloat(document.querySelector(`input[name="${q4}"]:checked`).value);
-            return (v1 + v2 + v3 + v4) / 4;
+        function getVal(name) {
+            return parseFloat(document.querySelector('input[name="' + name + '"]:checked').value);
         }
 
-        const scores = {
+        function getAvg(q1, q2, q3, q4) {
+            return (getVal(q1) + getVal(q2) + getVal(q3) + getVal(q4)) / 4;
+        }
+
+        var scores = {
             health: getAvg('h1', 'h2', 'h3', 'h4'),
             career: getAvg('c1', 'c2', 'c3', 'c4'),
             money: getAvg('m1', 'm2', 'm3', 'm4'),
@@ -1056,52 +1118,69 @@
         };
 
         // Find strongest and weakest
-        let strongestKey = 'health', weakestKey = 'health';
-        let maxVal = -1, minVal = 6;
+        var strongestKey = 'health', weakestKey = 'health';
+        var maxVal = -1, minVal = 6;
 
-        for (let key of assetOrder) {
+        for (var i = 0; i < assetOrder.length; i++) {
+            var key = assetOrder[i];
             if (scores[key] > maxVal) { maxVal = scores[key]; strongestKey = key; }
             if (scores[key] < minVal) { minVal = scores[key]; weakestKey = key; }
         }
 
-        // Populate feedback
-        document.getElementById('strongest-title').textContent = `${prescriptionData[strongestKey].name}（平均 ${scores[strongestKey].toFixed(1)} / 5.0）`;
+        // Populate top feedback
+        document.getElementById('strongest-title').textContent = prescriptionData[strongestKey].name + '（スコア ' + scores[strongestKey].toFixed(1) + ' / 5.0）';
         document.getElementById('strongest-text').textContent = prescriptionData[strongestKey].strong;
 
-        document.getElementById('weakest-title').textContent = `${prescriptionData[weakestKey].name}（平均 ${scores[weakestKey].toFixed(1)} / 5.0）`;
+        document.getElementById('weakest-title').textContent = prescriptionData[weakestKey].name + '（スコア ' + scores[weakestKey].toFixed(1) + ' / 5.0）';
         document.getElementById('weakest-text').textContent = prescriptionData[weakestKey].weak;
 
+        // Populate all 6 assets feedback
+        var allFeedbackContainer = document.getElementById('allFeedbackContainer');
+        allFeedbackContainer.innerHTML = '';
+        for (var j = 0; j < assetOrder.length; j++) {
+            var k = assetOrder[j];
+            var isStrong = scores[k] >= 3.5;
+            var item = document.createElement('div');
+            item.className = 'asset-feedback-item';
+            item.innerHTML = '<div class="af-header"><span class="af-name">' + prescriptionData[k].name + '</span><span class="af-score">' + scores[k].toFixed(1) + ' / 5.0</span></div><div class="af-text">' + (isStrong ? prescriptionData[k].strong : prescriptionData[k].weak) + '</div>';
+            allFeedbackContainer.appendChild(item);
+        }
+
+        // Populate dynamic reflection Q4
+        document.getElementById('reflection-q4').textContent = reflectionQ4[weakestKey];
+
         // Populate score table
-        const tbody = document.getElementById('scoreTableBody');
+        var tbody = document.getElementById('scoreTableBody');
         tbody.innerHTML = '';
-        for (let key of assetOrder) {
-            const pct = (scores[key] / 5) * 100;
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${prescriptionData[key].name}</td>
-                <td class="score-val">${scores[key].toFixed(1)}</td>
-                <td class="score-bar-cell"><div class="score-bar-bg"><div class="score-bar-fill" style="width:${pct}%"></div></div></td>
-            `;
+        for (var m = 0; m < assetOrder.length; m++) {
+            var ak = assetOrder[m];
+            var pct = (scores[ak] / 5) * 100;
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + prescriptionData[ak].name + '</td><td class="score-val">' + scores[ak].toFixed(1) + '</td><td class="score-bar-cell"><div class="score-bar-bg"><div class="score-bar-fill" style="width:' + pct + '%"></div></div></td>';
             tbody.appendChild(row);
         }
 
         // Show result section with fade
-        const resultSection = document.getElementById('result-section');
+        var resultSection = document.getElementById('result-section');
         resultSection.style.display = 'block';
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
                 resultSection.classList.add('visible');
             });
         });
 
-        setTimeout(() => {
+        setTimeout(function() {
             resultSection.scrollIntoView({ behavior: 'smooth' });
         }, 100);
 
         // Draw chart
-        const ctx = document.getElementById('hexagonChart').getContext('2d');
-        const chartData = assetOrder.map(k => scores[k]);
-        const chartLabels = assetOrder.map(k => prescriptionData[k].name);
+        var ctx = document.getElementById('hexagonChart').getContext('2d');
+        var chartData = [];
+        var chartLabels = [];
+        for (var n = 0; n < assetOrder.length; n++) {
+            chartData.push(scores[assetOrder[n]]);
+            chartLabels.push(prescriptionData[assetOrder[n]].name);
+        }
 
         if (myChart) {
             myChart.data.datasets[0].data = chartData;
